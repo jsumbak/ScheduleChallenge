@@ -7,4 +7,4 @@ Challenge: Creating a calendar application where a user can store their schedule
  Live URL  https://jsumbak.github.io/ScheduleChallenge/
 
  Screenshot:
- <img src="./assets/ScheduleScreenshot.png" alt="screenshot">
+ <img src="./Assets/ScheduleScreenshot.png">
