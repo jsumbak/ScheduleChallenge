@@ -9,6 +9,7 @@ var inputValue = $("." + input).val()
     localStorage.setItem(input,inputValue)
 })
 
+// create local storage for text
 $(".nine").val(localStorage.getItem("nine"))
 $(".ten").val(localStorage.getItem("ten"))
 $(".eleven").val(localStorage.getItem("eleven"))
@@ -19,4 +20,31 @@ $(".three").val(localStorage.getItem("three"))
 $(".four").val(localStorage.getItem("four"))
 $(".five").val(localStorage.getItem("five"))
 
-// momnent js is before and after
+function hourTracker() {
+    var currentHour = moment().hour(); 
+
+    // loop for time blocks
+    $(".time-block").each(function () {
+        var blockHour = parseInt($(this).attr("id").split("hour")[1]);
+        console.log( blockHour, currentHour)
+
+        if (blockHour < currentHour) {
+            $(this).addClass(".past");
+            $(this).removeClass(".future");
+            $(this).removeClass(".present");
+        }
+        else if (blockHour === currentHour) {
+            $(this).removeClass(".past");
+            $(this).addClass(".present");
+            $(this).removeClass(".future");
+        }
+        else {
+            $(this).removeClass(".present");
+            $(this).removeClass(".past");
+            $(this).addClass(".future");
+        }
+
+        hourTracker(); 
+    })
+}
+
